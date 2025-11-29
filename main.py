@@ -8,7 +8,7 @@ app = FastAPI()
 # Configure CORS to allow requests from frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS  
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -24,3 +24,4 @@ async def root():
 if __name__ == "__main__":
 
     uvicorn.run("main:app", host="0.0.0.0", port=settings.APP_PORT, log_level="info", reload=True)
+
