@@ -7,6 +7,7 @@ from config import settings
 
 async def sendContactEmail(form: ContactForm):
     try:
+        print("📩 Attempting SMTP connection...", flush=True)
         # Create email message
         msg = MIMEMultipart()
         msg['From'] = settings.EMAIL_ADDRESS
@@ -29,5 +30,6 @@ async def sendContactEmail(form: ContactForm):
 
         return {"message": "Email sent successfully"}
     except Exception as e:
-
+        print(f"❌ EMAIL ERROR: {e}", flush=True) 
         raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")
+
