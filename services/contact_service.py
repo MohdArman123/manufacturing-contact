@@ -20,6 +20,7 @@ async def sendContactEmail(form: ContactForm):
         Message: {form.message}
         """
         msg.attach(MIMEText(body, 'plain'))
+        print("📩 Attempting SMTP connection...")
 
         # Connect to Gmail's SMTP server
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
@@ -28,4 +29,5 @@ async def sendContactEmail(form: ContactForm):
 
         return {"message": "Email sent successfully"}
     except Exception as e:
+
         raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")
