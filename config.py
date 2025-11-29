@@ -3,6 +3,7 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     PROJECT_NAME: str
+    CORS_ORIGINS: list[str]
     CORS_ORIGINS: str 
     EMAIL_ADDRESS:str
     EMAIL_PASSWORD:str
