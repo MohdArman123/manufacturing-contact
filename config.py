@@ -4,7 +4,7 @@ from pydantic import Field
 
 class Settings(BaseSettings):
     PROJECT_NAME: str
-    CORS_ORIGINS: list
+    CORS_ORIGINS: str
     BREVO_API_KEY: str
     SENDER_EMAIL: str
     RECIPIENT_EMAIL: str
@@ -37,3 +37,4 @@ settings = Settings()
 
 
 # settings = Settings()
+
