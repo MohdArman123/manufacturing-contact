@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     BREVO_API_KEY: str
     SENDER_EMAIL: str
     RECIPIENT_EMAIL: str
-    APP_PORT: int = 8000
+    APP_PORT: int
     
     class Config:
         env_file = "./.env"
@@ -34,5 +34,6 @@ settings = Settings()
 #     class Config:
 #         env_file = "./.env"
 #         env_file_encoding = "utf-8"
+
 
 # settings = Settings()
