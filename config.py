@@ -1,20 +1,38 @@
 import os
 from pydantic_settings import BaseSettings
+from pydantic import Field
 
 class Settings(BaseSettings):
     PROJECT_NAME: str
-    CORS_ORIGINS: str 
-    EMAIL_ADDRESS:str
-    EMAIL_PASSWORD:str
+    CORS_ORIGINS: list
+    BREVO_API_KEY: str
+    SENDER_EMAIL: str
     RECIPIENT_EMAIL: str
-    APP_PORT: int
-
+    APP_PORT: int = 8000
+    
     class Config:
         env_file = "./.env"
         env_file_encoding = "utf-8"
-
+        # This makes it case-insensitive
+        case_sensitive = False
 
 settings = Settings()
 
-# Convert comma-separated string → proper list
-ALLOWED_ORIGINS = [origin.strip() for origin in settings.CORS_ORIGINS.split(",")]
+
+# import os
+# from pydantic_settings import BaseSettings
+
+# class Settings(BaseSettings):
+#     PROJECT_NAME: str
+#     CORS_ORIGINS: list[str]
+#     CORS_ORIGINS: str 
+#     EMAIL_ADDRESS:str
+#     EMAIL_PASSWORD:str
+#     RECIPIENT_EMAIL: str
+#     APP_PORT: int
+
+#     class Config:
+#         env_file = "./.env"
+#         env_file_encoding = "utf-8"
+
+# settings = Settings()
